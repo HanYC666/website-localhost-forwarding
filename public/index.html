@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Localhost Forwarding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-pulse"></div>
+                <h1>Website Localhost Forwarding</h1>
+            </div>
+            <p class="subtitle">Forward any website to your local machine port securely</p>
+        </header>
+
+        <main>
+            <!-- Status Card -->
+            <div class="status-card" id="statusCard">
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">Status: Inactive</span>
+                </div>
+                <div class="status-details" id="statusDetails">
+                    <!-- Dynamic details will be added here -->
+                </div>
+            </div>
+
+            <!-- Configuration Form -->
+            <form id="proxyForm" class="proxy-form">
+                <div class="input-group">
+                    <label for="target">Target Website / Destination</label>
+                    <input type="text" id="target" placeholder="e.g., https://example.com" required>
+                    <small>Include http:// or https:// (defaults to https)</small>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="port">Local Port</label>
+                        <input type="number" id="port" value="5000" min="1" max="65535" required>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" id="startBtn" class="btn btn-primary">Start Proxy</button>
+                    <button type="button" id="stopBtn" class="btn btn-danger hidden">Stop Proxy</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>Powered by Caddy Server • Runs locally on macOS & Linux</p>
+        </footer>
+    </div>
+
+    <!-- Error/Success Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

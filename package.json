@@ -1,0 +1,13 @@
+{
+  "name": "website-localhost-forwarding",
+  "version": "1.0.0",
+  "description": "Website Localhost Forwarding — forward any website to a local port using Caddy",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "node scripts/setup-caddy.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
