@@ -6,7 +6,7 @@ A sleek, self-contained web app to forward any website to a local port on your m
 
 ## Features
 
-- 🌐 **Reverse proxy any URL** to a local port (e.g. `https://example.com` → `localhost:5000`)
+- 🌐 **Reverse proxy any URL** to a local port (e.g. `https://example.com` → `localhost:5001`)
 - 💻 **Cross-platform**: works on macOS and Linux (x64 & arm64)
 - 📦 **Zero manual server setup**: Caddy is auto-downloaded on `npm install`
 - 🎨 **Premium UI**: glassmorphism dark-mode dashboard with live status polling
@@ -37,7 +37,7 @@ Then open your browser at **http://localhost:8003**.
 ## Usage
 
 1. Enter a **Target Website** URL (e.g. `https://example.com`)
-2. Enter your desired **Local Port** (e.g. `5000`)
+2. Enter your desired **Local Port** (e.g. `5001`)
 3. Click **Start Proxy**
 4. Browse to `http://localhost:<port>` — the site is forwarded locally
 5. Click **Stop Proxy** when done
@@ -49,7 +49,7 @@ The manager exposes a simple API on port `8003`:
 | Method | Endpoint | Body | Description |
 |--------|----------|------|-------------|
 | `GET` | `/api/status` | — | Get current proxy status |
-| `POST` | `/api/start` | `{ "target": "https://...", "port": "5000" }` | Start the proxy |
+| `POST` | `/api/start` | `{ "target": "https://...", "port": "5001" }` | Start the proxy |
 | `POST` | `/api/stop` | — | Stop the proxy |
 
 **Example:**
