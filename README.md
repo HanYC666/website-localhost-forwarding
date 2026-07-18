@@ -22,7 +22,7 @@ A sleek, self-contained web app to forward any website to a local port on your m
 
 ```bash
 # 1. Clone the repo
-git clone <your-repo-url>
+git clone https://github.com/HanYC666/website-localhost-forwarding
 cd website-localhost-forwarding
 
 # 2. Install dependencies (auto-downloads Caddy binary for your OS)
@@ -32,7 +32,7 @@ npm install
 npm start
 ```
 
-Then open your browser at **http://localhost:8080**.
+Then open your browser at **http://localhost:8003**.
 
 ## Usage
 
@@ -44,7 +44,7 @@ Then open your browser at **http://localhost:8080**.
 
 ## REST API
 
-The manager exposes a simple API on port `8080`:
+The manager exposes a simple API on port `8003`:
 
 | Method | Endpoint | Body | Description |
 |--------|----------|------|-------------|
@@ -56,15 +56,15 @@ The manager exposes a simple API on port `8080`:
 
 ```bash
 # Start a proxy
-curl -X POST http://localhost:8080/api/start \
+curl -X POST http://localhost:8003/api/start \
   -H "Content-Type: application/json" \
   -d '{"target":"https://example.com","port":"5050"}'
 
 # Check status
-curl http://localhost:8080/api/status
+curl http://localhost:8003/api/status
 
 # Stop
-curl -X POST http://localhost:8080/api/stop
+curl -X POST http://localhost:8003/api/stop
 ```
 
 ## Project Structure
@@ -91,7 +91,7 @@ curl -X POST http://localhost:8080/api/stop
 ## How It Works
 
 1. On `npm install`, `scripts/setup-caddy.js` detects your OS and CPU architecture and downloads the correct Caddy binary from the official Caddy API into `bin/`.
-2. `npm start` launches an Express server on port `8080` that serves the web UI.
+2. `npm start` launches an Express server on port `8003` that serves the web UI.
 3. When you click **Start Proxy**, the backend writes a `Caddyfile` with your chosen target and port, then spawns Caddy as a child process.
 4. Caddy handles all the reverse-proxying — including connection reuse, header forwarding, and graceful shutdown.
 5. When you click **Stop Proxy**, the backend sends `SIGTERM` to Caddy.
